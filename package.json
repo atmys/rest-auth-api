@@ -1,0 +1,36 @@
+{
+  "name": "rest-auth-api",
+  "version": "1.0.0",
+  "description": "API starter",
+  "author": "Romain Mougel",
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node -r dotenv/config index.js dotenv_config_path=./.env/.env",
+    "dev-live": "node -r dotenv/config index.js dotenv_config_path=./.env/.live.env",
+    "test": "jasmine --config=jasmine/all.json",
+    "test:unit": "jasmine --config=jasmine/unit.json",
+    "test:int": "jasmine --config=jasmine/int.json",
+    "eslint": "./node_modules/.bin/eslint ."
+  },
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.18.3",
+    "ent": "^2.2.0",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.1.5",
+    "morgan": "^1.6.1",
+    "nodemailer": "^4.6.6",
+    "sanitize-html": "^1.18.2",
+    "serialize-error": "^2.1.0"
+  },
+  "devDependencies": {
+    "dotenv": "^5.0.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jasmine": "^2.10.1",
+    "jasmine": "^3.1.0",
+    "request": "^2.87.0"
+  }
+}
