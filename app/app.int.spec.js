@@ -1,6 +1,6 @@
 const dotenv = require('dotenv');
 dotenv.config({ path: __dirname + '/../.env/.spec.env' });
-const { DBUrl, port } = require('../config');
+const { port } = require('../config');
 const app = require('./app');
 const mongoose = require('mongoose');
 const request = require('request');
@@ -8,7 +8,7 @@ const baseUrl = `http://localhost:${port}/api`;
 
 beforeAll(done => {
     // FIRST WE CONNECT TO DB, CLEAN IT & START THE APP
-    mongoose.connect(`mongodb://${DBUrl}`, { useNewUrlParser: true }).then(() => {
+    mongoose.connect(`mongodb://localhost/spec`, { useNewUrlParser: true }).then(() => {
         mongoose.connection.db.dropDatabase();
         this.server = app.listen(port);
         done();
