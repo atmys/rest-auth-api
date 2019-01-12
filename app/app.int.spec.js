@@ -4,7 +4,7 @@ const { DBUrl, port } = require('../config');
 const app = require('./app');
 const mongoose = require('mongoose');
 const request = require('request');
-const baseUrl = `https://localhost:${port}/api`;
+const baseUrl = `http://localhost:${port}/api`;
 
 beforeAll(done => {
     // FIRST WE CONNECT TO DB, CLEAN IT & START THE APP
