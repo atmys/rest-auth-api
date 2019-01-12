@@ -47,6 +47,7 @@ describe('Clean', () => {
         $p: 'p',
         err: new Error()
       }
+      expect(object('Startup & Coworking')).toBe('Startup & Coworking');
       expect(object('<script>alert(5)</script>bla')).toBe('bla');
       expect(object(['<script>alert(5)</script>bla'])).toEqual(['bla']);
       expect(object(cleanObj)).toEqual(cleanObj);
