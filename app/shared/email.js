@@ -21,6 +21,7 @@ exports.admin = function (subject, message) {
     sendMail(mailOptions);
 }
 
+/* istanbul ignore next */
 function sendMail(mailOptions) {
     if (emailConfig.user && emailConfig.pass && emailConfig.sender && emailConfig.admin) {
         transporter.sendMail(mailOptions, (err, info) => {

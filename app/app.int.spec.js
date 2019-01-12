@@ -34,7 +34,7 @@ describe('User', () => {
                 expect(user.token).toBeDefined();
                 this.legitUser = user;
                 done();
-            }).catch(err => done.fail(err));
+            });
         });
     });
     describe('when login', () => {
@@ -48,7 +48,7 @@ describe('User', () => {
                 expect(user._id).toEqual(this.legitUser._id);
                 this.legitUser = user;
                 done();
-            }).catch(err => done.fail(err));
+            });
         });
     });
     describe('when changing email', () => {
@@ -63,8 +63,21 @@ describe('User', () => {
             }).then(res => {
                 expect(res.statusCode).toBe(409);
                 done();
-            }).catch(err => {
-                done.fail(err)
+            });
+        });
+
+        it('should fail if wrong token', done => {
+            const savedToken = this.legitUser.token;
+            this.legitUser.token = 'fake token';
+            req({
+                method: 'PUT',
+                uri: '/users/email',
+                body: { email: this.legitUserEmail },
+                auth: true
+            }).then(res => {
+                expect(res.statusCode).toBe(500);
+                this.legitUser.token = savedToken;
+                done();
             });
         });
 
@@ -82,7 +95,7 @@ describe('User', () => {
                 expect(user.email).toBe(this.legitUserEmail);
                 this.legitUser = user;
                 done();
-            }).catch(err => done.fail(err));
+            });
         });
     });
     describe('when changing password', () => {
@@ -101,7 +114,7 @@ describe('User', () => {
                 this.legitUserPass = newLegitUserPass;
                 this.legitUser = user;
                 done();
-            }).catch(err => done.fail(err));
+            });
         });
     });
 });
@@ -128,6 +141,7 @@ const req = o => {
     }
     return new Promise((resolve, reject) => {
         request(options, function (error, response, body) {
+            /* istanbul ignore if */
             if (error) {
                 reject(error);
             } else {

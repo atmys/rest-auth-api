@@ -17,14 +17,14 @@ router.post('/login', function (req, res, next) {
 
 // SETTINGS
 
-router.put('/email', isLoggedIn, async function (req, res, next) {
-    // usersBLL.changeEmail(req.user, req.body).then(user => res.json(signedUser(user))).catch(next);
-    try {
-        const user = await usersBLL.changeEmail(req.user, req.body);
-        res.json(signedUser(user));
-    } catch (err) {
-        next(err);
-    }
+router.put('/email', isLoggedIn, function (req, res, next) {
+    usersBLL.changeEmail(req.user, req.body).then(user => res.json(signedUser(user))).catch(next);
+    // try {
+    //     const user = await usersBLL.changeEmail(req.user, req.body);
+    //     res.json(signedUser(user));
+    // } catch (err) {
+    //     next(err);
+    // }
 });
 
 router.put('/password', isLoggedIn, function (req, res, next) {

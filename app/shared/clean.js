@@ -4,7 +4,7 @@ const ent = require('ent');
 const boolean = function (dirty) {
   let clean = false;
   if (dirty === true) clean = true;
-  return clean
+  return clean;
 }
 
 const string = function (dirty) {

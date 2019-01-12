@@ -16,6 +16,7 @@ app.use(bodyParser.json({ limit: '2mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '2mb' }));
 app.use(bodyParser.json());
 
+/* istanbul ignore if */
 if (production) {
   // FOR DOCKERIZED APP
   app.enable('trust proxy');

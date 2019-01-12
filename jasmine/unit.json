@@ -1,6 +1,7 @@
 {
   "spec_dir": "app",
   "spec_files": [
+    "**/*.unit.spec.js",
     "**/*.api.spec.js",
     "**/*.bll.spec.js",
     "**/*.dal.spec.js"

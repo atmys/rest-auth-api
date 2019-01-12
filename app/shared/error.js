@@ -45,10 +45,13 @@ exports.shouldBeValid = function (check) {
 
 exports.handleError = function (err, data) {
     const error = `ERROR:\n ${util.inspect(serializeError(err))}\n\nDATA:\n${util.inspect(data)}`;
+    /* istanbul ignore next */
     if (test) {
         console.error(err);
+        /* istanbul ignore next */
     } else if (production && !err.skipEmail) {
         email.admin('RPS error!', error);
+        /* istanbul ignore next */
     } else if (!production || err.log) {
         console.error(error);
     }

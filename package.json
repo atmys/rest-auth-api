@@ -7,12 +7,14 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "test": "npm run eslint && nyc npm run spec",
     "dev": "node -r dotenv/config index.js dotenv_config_path=./.env/.env",
     "dev-live": "node -r dotenv/config index.js dotenv_config_path=./.env/.live.env",
-    "test": "jasmine --config=jasmine/all.json",
-    "test:unit": "jasmine --config=jasmine/unit.json",
-    "test:int": "jasmine --config=jasmine/int.json",
-    "eslint": "./node_modules/.bin/eslint ."
+    "spec": "jasmine --config=jasmine/all.json",
+    "spec:unit": "jasmine --config=jasmine/unit.json",
+    "spec:int": "jasmine --config=jasmine/int.json",
+    "eslint": "eslint .",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
@@ -27,10 +29,12 @@
     "serialize-error": "^2.1.0"
   },
   "devDependencies": {
+    "coveralls": "^3.0.2",
     "dotenv": "^5.0.1",
     "eslint": "^4.19.1",
     "eslint-plugin-jasmine": "^2.10.1",
     "jasmine": "^3.1.0",
+    "nyc": "^13.1.0",
     "request": "^2.87.0"
   }
 }
