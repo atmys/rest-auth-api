@@ -1,5 +1,5 @@
 const usersDAL = require('./users.dal');
-const { string } = require('../shared/clean');
+const { string } = require('body-cleaner');
 const { emailShouldNotExist, shouldBeString, shouldBeValid } = require('../shared/error');
 
 module.exports = {
