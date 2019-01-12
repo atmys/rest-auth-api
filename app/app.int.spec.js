@@ -4,14 +4,13 @@ const { DBUrl, port } = require('../config');
 const app = require('./app');
 const mongoose = require('mongoose');
 const request = require('request');
-const baseUrl = `http://localhost:${port}/api`;
+const baseUrl = `https://localhost:${port}/api`;
 
 beforeAll(done => {
     // FIRST WE CONNECT TO DB, CLEAN IT & START THE APP
     mongoose.connect(`mongodb://${DBUrl}`, { useNewUrlParser: true }).then(() => {
         mongoose.connection.db.dropDatabase();
         this.server = app.listen(port);
-        console.log(this.server);
         done();
     });
 });
