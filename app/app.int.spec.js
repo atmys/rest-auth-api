@@ -52,6 +52,22 @@ describe('User', () => {
         });
     });
     describe('when changing email', () => {
+
+        it('should fail if same email', done => {
+            // this.legitUserEmail = 'john@doe.com';
+            req({
+                method: 'PUT',
+                uri: '/users/email',
+                body: { email: this.legitUserEmail },
+                auth: true
+            }).then(res => {
+                expect(res.statusCode).toBe(409);
+                done();
+            }).catch(err => {
+                done.fail(err)
+            });
+        });
+
         it('should return signed user', done => {
             this.legitUserEmail = 'john@doe.fr';
             req({

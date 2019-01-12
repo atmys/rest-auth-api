@@ -17,8 +17,14 @@ router.post('/login', function (req, res, next) {
 
 // SETTINGS
 
-router.put('/email', isLoggedIn, function (req, res, next) {
-    usersBLL.changeEmail(req.user, req.body).then(user => res.json(signedUser(user))).catch(next);
+router.put('/email', isLoggedIn, async function (req, res, next) {
+    // usersBLL.changeEmail(req.user, req.body).then(user => res.json(signedUser(user))).catch(next);
+    try {
+        const user = await usersBLL.changeEmail(req.user, req.body);
+        res.json(signedUser(user));
+    } catch (err) {
+        next(err);
+    }
 });
 
 router.put('/password', isLoggedIn, function (req, res, next) {
@@ -27,7 +33,7 @@ router.put('/password', isLoggedIn, function (req, res, next) {
 
 module.exports = router;
 
-const signedUser = function (user) {
+function signedUser(user) {
     user = user.toJSON();
     delete user.password;
     user.token = jwt.sign({ _id: user._id }, JWTSecret);
