@@ -11,6 +11,7 @@ beforeAll(done => {
     mongoose.connect(`mongodb://${DBUrl}`, { useNewUrlParser: true }).then(() => {
         mongoose.connection.db.dropDatabase();
         this.server = app.listen(port);
+        console.log(this.server);
         done();
     });
 });
