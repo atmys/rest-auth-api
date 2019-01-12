@@ -20,6 +20,17 @@
     "type": "git",
     "url": "git+https://github.com/atmys/rest-auth-api.git"
   },
+  "keywords": [
+    "node.js",
+    "express",
+    "api",
+    "starter",
+    "boilerplate",
+    "auth",
+    "jwt",
+    "mongoose",
+    "mongodb"
+  ],
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-cleaner": "^1.0.0",
