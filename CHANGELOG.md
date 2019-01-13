@@ -6,7 +6,6 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
 ### Added
 - Travis CI, Coveralls & Snyk
 - changelog
-- codebeat audit
 - badges
 - license file
 

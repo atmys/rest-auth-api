@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/atmys/rest-auth-api.svg?branch=master)](https://travis-ci.org/atmys/rest-auth-api)
 [![Coverage Status](https://coveralls.io/repos/github/atmys/rest-auth-api/badge.svg?branch=master)](https://coveralls.io/github/atmys/rest-auth-api?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/github/atmys/rest-auth-api/badge.svg?targetFile=package.json)](https://snyk.io/test/github/atmys/rest-auth-api?targetFile=package.json)
-[![codebeat badge](https://codebeat.co/badges/7f2f4841-2232-4614-9e20-fef7db617e5a)](https://codebeat.co/projects/github-com-atmys-rest-auth-api-master)
+[![CodeFactor](https://www.codefactor.io/repository/github/atmys/rest-auth-api/badge)](https://www.codefactor.io/repository/github/atmys/rest-auth-api)
 
 Custom REST API boilerplate for my needs with:
 - auth
