@@ -24,7 +24,6 @@ module.exports = {
 		const user = await usersDAL.findOneByEmail(email);
 		shouldBeValid(user);
 		shouldBeValid(user.validPassword(password));
-		delete user.password;
 		return user;
 	},
 

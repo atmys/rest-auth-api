@@ -46,6 +46,7 @@ describe('User', () => {
             }).then(res => {
                 const user = res.body;
                 expect(user._id).toEqual(this.legitUser._id);
+                expect(user.password).toBeUndefined();
                 this.legitUser = user;
                 done();
             });
