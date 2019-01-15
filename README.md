@@ -45,7 +45,7 @@ You can check the expected environment variables in the config.js file.
 
 ## Running the tests
 
-```
+```console
 // lint
 npm run eslint
 
